@@ -1,5 +1,8 @@
+import imp
+from operator import le
 from turtle import Turtle,Screen
 import time
+from snake import Snake
 #To_do__1
 #Create Snke and screen
 
@@ -9,23 +12,12 @@ screen.bgcolor("black")
 screen.title("John Snake Game")
 
 screen.tracer(0)
-F_position = [(0,0),(-20,0),(-40,0)]
-segments = []
-for p in F_position:
-    segment = Turtle("square")
-    segment.color('white')
-    segment.penup()
-    segment.goto(p)
-    segments.append(segment)
-
 
 game_is_on = True
 while game_is_on:
     screen.update()
-    for seg in segments:
-        seg.forward(20)
-        
-        time.sleep(1)
+    time.sleep(0.1)
+
 
 
 
