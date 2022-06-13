@@ -2,20 +2,25 @@
 from turtle import Screen
 import time
 from food import Food
+from scorebord import ScoreBord
 from snake import Snake
+
 #To_do__1
 #Create Snke and screen
 
 screen = Screen()
+snake = Snake()
+food = Food()
+scorebord = ScoreBord()
+screen.listen()
+
 screen.setup(width=600,height=600)
 screen.bgcolor("black")
-screen.title("John Snake Game")
+screen.title(f"John Snake Game score is ")
 screen.tracer(0)
 
 
-snake = Snake()
-food = Food()
-screen.listen()
+
 
 screen.onkey(snake.up, "Up")
 screen.onkey(snake.down, "Down")
@@ -25,10 +30,14 @@ screen.onkey(snake.right, "Right")
 game_is_on = True
 while game_is_on:
     screen.update()
-    time.sleep(0.5)
+    time.sleep(0.1)
     snake.move()
     if snake.head.distance(food) < 15 :
         food.refresh()
+
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        game_is_on = False
+        scorebord.gameOver()
 
 
 screen.exitonclick()
