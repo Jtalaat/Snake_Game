@@ -3,6 +3,8 @@ ALIGNMENT = "center"
 FONT = ("Courier", 24, "normal")
 
 
+#john talaat
+
 class Scoreboard(Turtle):
 
     def __init__(self):
